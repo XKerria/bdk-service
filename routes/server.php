@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Common\BucketController;
+use App\Http\Controllers\Server\BannerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/sts', [BucketController::class, 'sts']);
+
+Route::apiResource('/banners', BannerController::class);

@@ -7,8 +7,22 @@ namespace App\Services;
 use AlibabaCloud\Client\AlibabaCloud;
 use AlibabaCloud\Client\Exception\ClientException;
 use AlibabaCloud\Client\Exception\ServerException;
+use Illuminate\Support\Arr;
 
 class OssBucketService extends AbstractBucketService {
+    protected string $id;
+    protected string $secret;
+    protected string $host;
+    protected string $region;
+
+    public function __construct(string $type) {
+        parent::__construct($type);
+        $this->id = Arr::get($this->config, 'sts_id');
+        $this->secret = Arr::get($this->config, 'sts_secret');
+        $this->host = Arr::get($this->config, 'sts_host');
+        $this->region = Arr::get($this->config, 'region');
+    }
+
     function sts() {
         AlibabaCloud::accessKeyClient($this->id, $this->secret)->regionId($this->region)->asDefaultClient();
         try {

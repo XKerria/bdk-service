@@ -5,16 +5,10 @@ namespace App\Services;
 
 
 abstract class AbstractBucketService {
-    protected string $id;
-    protected string $secret;
-    protected string $region;
-    protected string $host;
+    protected array $config;
 
-    public function __construct() {
-        $this->id = env('BUCKET_ID');
-        $this->secret = env('BUCKET_SECRET');
-        $this->region = env('BUCKET_REGION');
-        $this->host = env('BUCKET_STS_HOST');
+    public function __construct(string $type) {
+        $this->config = config("bucket.{$type}");
     }
 
     abstract function sts();
