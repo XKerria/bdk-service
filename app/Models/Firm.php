@@ -16,4 +16,8 @@ class Firm extends Model
     protected $casts = [
         'brands' => 'json'
     ];
+
+    public function users() {
+        return $this->hasMany(User::class);
+    }
 }

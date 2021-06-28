@@ -15,9 +15,13 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->string('id', 19)->primary();
+            $table->string('name', 32);
             $table->string('phone', 32)->unique();
             $table->string('password')->nullable();
+            $table->string('firm_id', 19)->nullable();
             $table->timestamps();
+
+            $table->foreign('firm_id')->references('id')->on('firms')->cascadeOnDelete();
         });
     }
 

@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Wechat extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'openid';
+    protected $keyType = 'string';
+    public $incrementing = false;
+
+    protected $guarded = [];
+
+    public function getRouteKeyName() {
+        return 'openid';
+    }
 }
