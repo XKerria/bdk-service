@@ -12,4 +12,8 @@ class Firm extends Model
         Snowflakable;
 
     protected $guarded = [];
+
+    protected $casts = [
+        'brands' => 'json'
+    ];
 }

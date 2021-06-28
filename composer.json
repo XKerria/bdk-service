@@ -13,7 +13,9 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "kra8/laravel-snowflake": "^2.0",
         "laravel/framework": "^8.40",
-        "laravel/tinker": "^2.5"
+        "laravel/sanctum": "^2.11",
+        "laravel/tinker": "^2.5",
+        "maatwebsite/excel": "^3.1"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Firm;
+use App\Imports\SeriesImport;
 use Illuminate\Database\Seeder;
+use Maatwebsite\Excel\Facades\Excel;
 
-class FirmSeeder extends Seeder
+class SeriesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +15,6 @@ class FirmSeeder extends Seeder
      */
     public function run()
     {
-        Firm::factory()->count(5)->create();
+        Excel::import(new SeriesImport, resource_path('data/series.csv'));
     }
 }

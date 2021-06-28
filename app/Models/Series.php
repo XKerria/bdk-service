@@ -6,19 +6,19 @@ use App\Models\Abilities\Snowflakable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Brand extends Model
+class Series extends Model
 {
     use HasFactory,
         Snowflakable;
 
     protected $guarded = [];
 
-    public function getLogoAttribute($value) {
+    public function getImageAttribute($value) {
         $endpoint = env('OSS_BUCKET_ENDPOINT');
         return "https://{$endpoint}/{$value}";
     }
 
-    public function series() {
-        return $this->hasMany(Series::class);
+    public function brand() {
+        return $this->belongsTo(Brand::class);
     }
 }

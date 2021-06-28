@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\Common\BucketController;
 use App\Http\Controllers\Server\BannerController;
+use App\Http\Controllers\Server\BrandController;
+use App\Http\Controllers\Server\BrandSeriesController;
+use App\Http\Controllers\Server\SeriesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +21,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/sts', [BucketController::class, 'sts']);
 
+Route::get('/brands/sync', [BrandController::class, 'sync']);
+
 Route::apiResource('/banners', BannerController::class);
+Route::apiResource('/brands', BrandController::class);
+Route::apiResource('/series', SeriesController::class);
+Route::apiResource('/brands/{brand}/series', BrandSeriesController::class);
+

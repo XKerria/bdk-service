@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateWechatsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->string('id', 19)->primary();
-            $table->string('phone', 32)->unique();
-            $table->string('password')->nullable();
+        Schema::create('wechats', function (Blueprint $table) {
+            $table->string('openid')->primary();
+            $table->string('session_key')->nullable();
+            $table->string('unionid')->nullable();
+            $table->string('phone')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('wechats');
     }
 }

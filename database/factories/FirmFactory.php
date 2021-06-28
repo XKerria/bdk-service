@@ -22,7 +22,11 @@ class FirmFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->words($this->faker->numberBetween(2, 4), true),
+            'image' => 'https://picsum.photos/400/400?random=' . $this->faker->unique()->numberBetween(0, 9999),
+            'brands' => $this->faker->words($this->faker->numberBetween(3, 8)),
+            'phone' => $this->faker->phoneNumber,
+            'remain' => $this->faker->numberBetween(0, 300)
         ];
     }
 }
