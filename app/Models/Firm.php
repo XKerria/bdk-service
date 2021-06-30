@@ -17,7 +17,21 @@ class Firm extends Model
         'brands' => 'json'
     ];
 
+    protected $appends = ['amount', 'remain'];
+
     public function users() {
         return $this->hasMany(User::class);
+    }
+
+    public function vehicles() {
+        return $this->hasMany(Vehicle::class);
+    }
+
+    public function getAmountAttribute(): int {
+        return $this->vehicles()->sum('amount');
+    }
+
+    public function getRemainAttribute(): int {
+        return $this->vehicles()->sum('remain');
     }
 }

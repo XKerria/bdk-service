@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Brand;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,8 +20,11 @@ class DatabaseSeeder extends Seeder
 
         if (app()->environment() == 'local') {
             $this->call([
+                FirmSeeder::class,
+                UserSeeder::class,
                 BannerSeeder::class,
-                FirmSeeder::class
+                VehicleSeeder::class,
+                BlackSeeder::class
             ]);
         }
     }

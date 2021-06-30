@@ -14,11 +14,15 @@ class Series extends Model
     protected $guarded = [];
 
     public function getImageAttribute($value) {
-        $endpoint = env('OSS_BUCKET_ENDPOINT');
+        $endpoint = env('OSS_ENDPOINT');
         return "https://{$endpoint}/{$value}";
     }
 
     public function brand() {
         return $this->belongsTo(Brand::class);
+    }
+
+    public function vehicles() {
+        return $this->hasMany(Vehicle::class);
     }
 }

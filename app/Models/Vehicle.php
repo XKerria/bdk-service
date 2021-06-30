@@ -6,19 +6,20 @@ use App\Models\Abilities\Snowflakable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Brand extends Model
+class Vehicle extends Model
 {
     use HasFactory,
         Snowflakable;
 
     protected $guarded = [];
 
-    public function getLogoAttribute($value) {
-        $endpoint = env('OSS_ENDPOINT');
-        return "https://{$endpoint}/{$value}";
-    }
+    protected $with = ['series.brand'];
 
     public function series() {
-        return $this->hasMany(Series::class);
+        return $this->belongsTo(Series::class);
+    }
+
+    public function firm() {
+        return $this->belongsTo(Firm::class);
     }
 }

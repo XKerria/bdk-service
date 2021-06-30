@@ -3,16 +3,17 @@
 namespace Database\Factories;
 
 use App\Models\Brand;
+use App\Models\Series;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class BrandFactory extends Factory
+class SeriesFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Brand::class;
+    protected $model = Series::class;
 
     /**
      * Define the model's default state.
@@ -21,11 +22,11 @@ class BrandFactory extends Factory
      */
     public function definition()
     {
-        $name = $this->faker->unique()->word;
         return [
-            'name' => $name,
-            'letter' => substr($name, 0, 1),
-            'logo' => 'https://picsum.photos/100/100?random=' . $this->faker->unique()->numberBetween(0, 9999),
+            'name' => $this->faker->word,
+            'price' => '暂无',
+            'image' => 'https://picsum.photos/600/400?random=' . $this->faker->unique()->numberBetween(0, 9999),
+            'brand_id' => Series::inRandomOrder()->first()
         ];
     }
 }
