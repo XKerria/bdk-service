@@ -10,7 +10,7 @@ services:
       - bdk-mysql
       - bdk-redis
       - bdk-nginx
-    image: yjt-bdk-service
+    image: bdk-service
     container_name: bdk-service
     restart: unless-stopped
     tty: true
