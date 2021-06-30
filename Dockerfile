@@ -25,7 +25,6 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN docker-php-ext-configure gd --with-webp=/usr/include/webp --with-jpeg=/usr/include --with-freetype=/usr/include/freetype2/
 RUN docker-php-ext-install gd pdo_mysql mbstring zip exif pcntl
 RUN pecl install -o -f redis &&  rm -rf /tmp/pear &&  docker-php-ext-enable redis
-RUN pecl install -o -f xdebug &&  rm -rf /tmp/pear &&  docker-php-ext-enable xdebug
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
