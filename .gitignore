@@ -15,4 +15,4 @@ yarn-error.log
 /.vscode
 
 /docker/data/*
-/redis/data/*
+/docker/redis/data/*
