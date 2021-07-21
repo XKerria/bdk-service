@@ -17,6 +17,9 @@ class SortBuilder extends AbstractBuilder {
         'descend' => 'desc'
     ];
 
+    /*
+     * {sort: 'field:mode,encoding'}
+     */
     public function build(Builder $query, array $params): Builder {
         $args = array_filter(explode('|', Arr::get($params, 'sort', '')));
         if (count($args) == 0) return $this->next->build($query, $params);

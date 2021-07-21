@@ -18,6 +18,9 @@ class User extends Authenticatable
 
     protected $guarded = [];
 
+    protected $hidden = ['password'];
+
+
     public function firm() {
         return $this->belongsTo(Firm::class);
     }
