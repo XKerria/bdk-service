@@ -2,16 +2,10 @@
 
 use App\Http\Controllers\Common\BucketController;
 use App\Http\Controllers\Server\AuthController;
-use App\Http\Controllers\Server\BannerController;
 use App\Http\Controllers\Server\BrandController;
-use App\Http\Controllers\Server\BrandSeriesController;
 use App\Http\Controllers\Server\FirmController;
-use App\Http\Controllers\Server\FirmUserController;
-use App\Http\Controllers\Server\SeriesController;
 use App\Http\Controllers\Server\SettingController;
-use App\Http\Controllers\Server\TestController;
 use App\Http\Controllers\Server\UserController;
-use App\Http\Controllers\Server\VehicleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +33,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::apiResource('/settings', SettingController::class)->except(['index']);
     Route::apiResource('/users', UserController::class);
     Route::apiResource('/brands', BrandController::class);
+    Route::apiResource('/firms', FirmController::class);
 
 });
 

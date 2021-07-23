@@ -3,9 +3,8 @@
 namespace App\Http\Requests\Server;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class UserRequest extends FormRequest
+class BrandRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,9 +24,9 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:32',
-            'phone' => 'required|string|max:32|unique:users,phone,'.$this->id,
-            'firm_id' => 'required|string|exists:firms,id'
+            'name' => 'required|string|max:64|unique:brands,name,'.$this->id,
+            'logo' => 'required|url|max:1024',
+            'letter' => 'required|string|size:1'
         ];
     }
 }

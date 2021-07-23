@@ -9,6 +9,9 @@ use Illuminate\Support\Arr;
 
 class LikeBuilder extends AbstractBuilder {
 
+    /*
+     * {like: 'field:val'}
+     */
     public function build(Builder $query, array $params): Builder {
         $args = array_filter(explode('|', Arr::get($params, 'like', '')));
         if (count($args) == 0) return $this->next->build($query, $params);
