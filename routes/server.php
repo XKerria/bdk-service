@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Common\BucketController;
 use App\Http\Controllers\Server\AuthController;
+use App\Http\Controllers\Server\BlackController;
 use App\Http\Controllers\Server\BrandController;
 use App\Http\Controllers\Server\FirmController;
+use App\Http\Controllers\Server\SeriesController;
 use App\Http\Controllers\Server\SettingController;
 use App\Http\Controllers\Server\UserController;
 use Illuminate\Support\Facades\Route;
@@ -34,7 +36,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::apiResource('/users', UserController::class);
     Route::apiResource('/brands', BrandController::class);
     Route::apiResource('/firms', FirmController::class);
-
+    Route::apiResource('/blacks', BlackController::class);
+    Route::apiResource('/series', SeriesController::class);
 });
 
 

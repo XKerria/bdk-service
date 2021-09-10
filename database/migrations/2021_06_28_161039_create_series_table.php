@@ -16,8 +16,8 @@ class CreateSeriesTable extends Migration
         Schema::create('series', function (Blueprint $table) {
             $table->string('id', 19)->primary();
             $table->string('name');
+            $table->string('image', 1024)->nullable();
             $table->string('price')->nullable();
-            $table->string('image')->nullable();
             $table->string('brand_id', 19);
             $table->timestamps();
 
