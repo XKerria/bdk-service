@@ -23,7 +23,9 @@ class UserController extends Controller
     }
 
     function store(UserRequest $request) {
-        $user = User::create($request->validated());
+        $data = $request->validated();
+        $data['password'] = '123456';
+        $user = User::create($data);
         return $user->fresh();
     }
 
