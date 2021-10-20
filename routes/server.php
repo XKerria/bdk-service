@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Common\BucketController;
 use App\Http\Controllers\Server\AuthController;
+use App\Http\Controllers\Server\BannerController;
 use App\Http\Controllers\Server\BlackController;
 use App\Http\Controllers\Server\BrandController;
 use App\Http\Controllers\Server\FirmController;
@@ -32,12 +33,13 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/auth/user', [AuthController::class, 'user']);
     Route::get('/auth/refresh', [AuthController::class, 'refresh']);
 
+    Route::apiResource('/firms', FirmController::class);
+    Route::apiResource('/banners', BannerController::class);
+    Route::apiResource('/blacks', BlackController::class);
+    Route::apiResource('/brands', BrandController::class);
+    Route::apiResource('/series', SeriesController::class);
     Route::apiResource('/settings', SettingController::class)->except(['index']);
     Route::apiResource('/users', UserController::class);
-    Route::apiResource('/brands', BrandController::class);
-    Route::apiResource('/firms', FirmController::class);
-    Route::apiResource('/blacks', BlackController::class);
-    Route::apiResource('/series', SeriesController::class);
 });
 
 

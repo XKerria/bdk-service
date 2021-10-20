@@ -9,25 +9,25 @@ use Illuminate\Http\Request;
 
 class BannerController extends Controller {
     function index(Request $request) {
-        return Banner::all();
+        $params = $request->query();
+        return Banner::resolve($params)->page($params);
     }
 
-    function show(Request $request, Banner $banner) {
+    function show(Banner $banner) {
         return $banner;
     }
 
     function store(BannerRequest $request) {
-        return Banner::create($request->validated());
+        $banner = Banner::create($request->validated());
+        return $banner->fresh();
     }
 
     function update(BannerRequest $request, Banner $banner) {
-        $banner->fill($request->validated());
-        $banner->save();
-        return $banner->refresh();
+        $banner->fill($request->validated())->save();
+        return $banner->fresh();
     }
 
     function destroy(Banner $banner) {
-        $banner->delete();
-        return $banner;
+        return $banner->delete();
     }
 }
