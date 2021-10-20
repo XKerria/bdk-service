@@ -32,4 +32,4 @@ Route::apiResource('/blacks', BlackController::class);
 
 Route::apiResource('/brands/{brand}/series', BrandSeriesController::class);
 Route::apiResource('/series/{series}/vehicles', SeriesVehicleController::class);
-Route::apiResource('/firms/{firm}/vehicles', FirmVehicleController::class);
+Route::apiResource('/firms/{firm}/vehicles', FirmVehicleController::class)->only(['index']);
