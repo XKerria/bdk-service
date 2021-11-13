@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Models\Abilities\Snowflakable;
+use App\Models\Scopes\PageScope;
+use App\Models\Scopes\ResolveScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -10,16 +12,12 @@ use Illuminate\Support\Str;
 class Series extends Model
 {
     use HasFactory,
-        Snowflakable;
+        Snowflakable,
+        ResolveScope,
+        PageScope;
 
+    protected $table = 'series';
     protected $guarded = [];
-
-    public function getImageAttribute($value) {
-        if (Str::startsWith($value, 'http')) return $value;
-
-        $endpoint = env('OSS_ENDPOINT');
-        return "https://{$endpoint}/{$value}";
-    }
 
     public function brand() {
         return $this->belongsTo(Brand::class);

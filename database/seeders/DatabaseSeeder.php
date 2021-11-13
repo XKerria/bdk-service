@@ -15,9 +15,18 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             SettingSeeder::class,
+            AdminSeeder::class,
             BrandSeeder::class,
             SeriesSeeder::class,
         ]);
+
+        if (app()->environment() == 'production') {
+            $this->call([
+                FirmSeeder::class,
+                UserSeeder::class,
+                BannerSeeder::class,
+            ]);
+        }
 
         if (app()->environment() == 'local') {
             $this->call([

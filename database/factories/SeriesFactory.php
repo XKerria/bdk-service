@@ -26,7 +26,7 @@ class SeriesFactory extends Factory
             'name' => $this->faker->word,
             'price' => '暂无',
             'image' => 'https://picsum.photos/600/400?random=' . $this->faker->unique()->numberBetween(0, 9999),
-            'brand_id' => Series::inRandomOrder()->first()
+            'brand_id' => null
         ];
     }
 }

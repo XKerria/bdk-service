@@ -22,7 +22,8 @@ class BannerFactory extends Factory
     public function definition()
     {
         return [
-            'image' => 'https://picsum.photos/600/320?random=' . $this->faker->unique()->numberBetween(0, 9999)
+            'image_url' => "https://picsum.photos/1380/600?random=".rand(),
+            'text' => $this->faker->words(rand(3, 5), true),
         ];
     }
 }

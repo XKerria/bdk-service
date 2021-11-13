@@ -15,9 +15,10 @@ class CreateBlacksTable extends Migration
     {
         Schema::create('blacks', function (Blueprint $table) {
             $table->string('id', 19)->primary();
-            $table->string('name');
-            $table->string('phone');
+            $table->string('name', 32);
+            $table->string('phone', 11);
             $table->text('description');
+            $table->json('images')->nullable();
             $table->timestamps();
         });
     }

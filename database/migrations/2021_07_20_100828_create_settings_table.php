@@ -15,8 +15,12 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->string('id', 19)->primary();
-            $table->string('name')->unique();
-            $table->text('value')->nullable();
+            $table->string('category');
+            $table->string('name', 32);
+            $table->string('type')->default('string');
+            $table->boolean('editable')->default(true);
+            $table->mediumText('value')->nullable();
+            $table->text('options')->nullable();
             $table->timestamps();
         });
     }

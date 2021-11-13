@@ -26,8 +26,7 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'phone' => $this->faker->phoneNumber,
-            'password' => '123456',
-            'firm_id' => Firm::inRandomOrder()->first()->id,
+            'firm_id' => null
         ];
     }
 

@@ -23,12 +23,10 @@ class VehicleFactory extends Factory
      */
     public function definition()
     {
-        $amount = $this->faker->numberBetween(1, 1000);
-        $firm = Firm::inRandomOrder()->first();
-        $series = Series::inRandomOrder()->first();
+        $amount = rand(0, 100);
         return [
-            'series_id' => $series->id,
-            'firm_id' => $firm->id,
+            'series_id' => null,
+            'firm_id' => null,
             'amount' => $amount,
             'remain' => $this->faker->numberBetween(1, $amount),
         ];

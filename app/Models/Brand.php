@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Models\Abilities\Snowflakable;
+use App\Models\Scopes\PageScope;
+use App\Models\Scopes\ResolveScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -10,16 +12,11 @@ use Illuminate\Support\Str;
 class Brand extends Model
 {
     use HasFactory,
-        Snowflakable;
+        Snowflakable,
+        ResolveScope,
+        PageScope;
 
     protected $guarded = [];
-
-    public function getLogoAttribute($value) {
-        if (Str::startsWith($value, 'http')) return $value;
-
-        $endpoint = env('OSS_ENDPOINT');
-        return "https://{$endpoint}/{$value}";
-    }
 
     public function series() {
         return $this->hasMany(Series::class);

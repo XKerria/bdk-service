@@ -16,8 +16,8 @@ class CreateFirmsTable extends Migration
         Schema::create('firms', function (Blueprint $table) {
             $table->string('id', 19)->primary();
             $table->string('name', 64)->unique();
-            $table->string('logo', 1024)->nullable();
-            $table->string('image', 1024)->nullable();
+            $table->string('logo_url', 1024)->nullable();
+            $table->string('image_url', 1024)->nullable();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->json('brands')->nullable();

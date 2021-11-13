@@ -17,7 +17,7 @@ class CreateBrandsTable extends Migration
             $table->string('id', 19)->primary();
             $table->string('name', 64)->unique();
             $table->string('letter', 1);
-            $table->string('logo', 1024)->nullable();
+            $table->string('logo_url', 1024)->nullable();
             $table->timestamps();
         });
     }
