@@ -11,7 +11,6 @@ class AdminFactory extends Factory
         return [
             'name' => $this->faker->name,
             'phone' => $this->faker->unique()->phoneNumber,
-            'password' => '123456',
         ];
     }
 }

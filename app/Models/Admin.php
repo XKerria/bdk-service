@@ -25,6 +25,15 @@ class Admin extends Authenticatable
     protected $hidden = [];
     protected $guarded = [];
 
+    protected static function booted()
+    {
+        static::creating(function ($admin) {
+            if (is_null($admin->password)) {
+                $admin->password = '123456';
+            }
+        });
+    }
+
     public function setPasswordAttribute($value) {
         $this->attributes['password'] = Hash::make($value);
     }
